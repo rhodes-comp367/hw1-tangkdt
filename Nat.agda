@@ -11,4 +11,3 @@ plus (suc m) n = suc (plus m n)
 times : Nat → Nat → Nat
 times zero n = zero
 times (suc m) n = plus n (times m n)
-

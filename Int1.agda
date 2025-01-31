@@ -1,34 +1,35 @@
 module Int1 where
 
 -- import `plus` & `times` on Nats;
--- use these functions where appropriate below.
+-- use these functions where appropriate below
 open import Nat
 
 data Int : Set where
-  -- int a b represents (a - b).
+  -- int a b represents (a - b)
   int : Nat → Nat → Int
 
--- given i, return i + 1.
+-- given i, return i + 1
 isuc : Int → Int
 isuc (int a b) = int (suc a) b
 
--- given i, return i - 1.
+-- given i, return i - 1
 ipred : Int → Int
-ipred = ?
+ipred (int zero x) = int x zero
+ipred (int (suc a) b) = int a b
 
--- given i, return -i.
+-- given i, return -i
 ineg : Int → Int
-ineg = ?
+ineg (int a b) = int b a 
 
--- given i & j, return i + j.
+-- given i & j, return i + j
 iplus : Int → Int → Int
-iplus = ?
+iplus (int a b) (int c d) = int (plus a c) (plus c d)
 
--- given i & j, return i - j.
+-- given i & j, return i - j
 iminus : Int → Int → Int
-iminus = ?
+iminus (int a b) (int c d) = int (plus a d) (plus b c) 
 
--- given i & j, return i * j.
+-- given i & j, return i * j
 itimes : Int → Int → Int
-itimes = ?
+itimes (int a b) (int c d) = int (plus (times a c) (times b d)) (plus (times a d) (times b c))
 
